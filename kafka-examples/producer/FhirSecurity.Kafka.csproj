@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FhirSecurity.Kafka</RootNamespace>
+    <AssemblyName>FhirSecurity.Kafka</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>Nithin Mohan T K</Authors>
+    <Company>dataa.dev</Company>
+    <Description>Kafka producer for FHIR events - Real-time healthcare data pipelines</Description>
+    <PackageProjectUrl>https://github.com/nithinmohantk/fhir-security</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nithinmohantk/fhir-security</RepositoryUrl>
+    <PackageTags>FHIR;Kafka;Healthcare;EventDriven;Streaming;HIPAA</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- FHIR SDK -->
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.5.1" />
+    
+    <!-- Kafka -->
+    <PackageReference Include="Confluent.Kafka" Version="2.3.0" />
+    
+    <!-- JSON Serialization -->
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    
+    <!-- Logging (optional) -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>
