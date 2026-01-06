@@ -1,0 +1,77 @@
+# FHIR Security Monitoring - Prometheus Configuration
+# Author: Nithin Mohan T K
+# Repository: https://github.com/nithinmohantk/fhir-security
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    environment: 'production'
+    service: 'fhir-api'
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+# Load rules once and periodically evaluate them
+rule_files:
+  - "alert-rules.yml"
+
+# Scrape configurations
+scrape_configs:
+  # FHIR Server metrics
+  - job_name: 'fhir-server'
+    static_configs:
+      - targets: ['fhir-server:8080']
+    metrics_path: '/metrics'
+    scheme: 'https'
+    tls_config:
+      insecure_skip_verify: false
+      ca_file: /etc/prometheus/certs/ca.crt
+    basic_auth:
+      username: 'prometheus'
+      password_file: /etc/prometheus/secrets/prometheus_password
+
+  # OAuth/Identity Server metrics
+  - job_name: 'identity-server'
+    static_configs:
+      - targets: ['identity-server:5001']
+    metrics_path: '/metrics'
+    scheme: 'https'
+    tls_config:
+      insecure_skip_verify: false
+      ca_file: /etc/prometheus/certs/ca.crt
+
+  # API Gateway metrics
+  - job_name: 'api-gateway'
+    static_configs:
+      - targets: ['api-gateway:8001']
+    metrics_path: '/metrics'
+
+  # Kafka metrics (if using Kafka pipeline)
+  - job_name: 'kafka'
+    static_configs:
+      - targets: ['kafka-exporter:9308']
+
+  # Redis metrics (for token caching)
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis-exporter:9121']
+
+  # Node exporter for infrastructure metrics
+  - job_name: 'node'
+    static_configs:
+      - targets: 
+        - 'fhir-server-1:9100'
+        - 'fhir-server-2:9100'
+        - 'identity-server-1:9100'
+
+# Remote write for long-term storage (optional)
+# remote_write:
+#   - url: "https://your-cortex-or-thanos:9090/api/v1/write"
+#     basic_auth:
+#       username: 'remote_write_user'
+#       password_file: /etc/prometheus/secrets/remote_write_password
