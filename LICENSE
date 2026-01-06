@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Nithin Mohan T K
+Copyright (c) 2026 Nithin Mohan T K
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,18 +20,83 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+================================================================================
+                        HEALTHCARE DATA DISCLAIMER
+================================================================================
 
-HEALTHCARE DATA DISCLAIMER:
+This software, including all code examples, compliance checklists, monitoring
+templates, and documentation, is provided for EDUCATIONAL AND DEMONSTRATION
+PURPOSES ONLY.
 
-This software is provided for educational and demonstration purposes only.
-Before using in a production healthcare environment:
+BEFORE USING IN A PRODUCTION HEALTHCARE ENVIRONMENT:
 
-1. Conduct a thorough security review
-2. Ensure HIPAA compliance for your specific use case
-3. Complete penetration testing
-4. Obtain appropriate legal and compliance approvals
-5. Never use real PHI (Protected Health Information) in testing
+1. SECURITY REVIEW
+   - Conduct a thorough security assessment by qualified professionals
+   - Perform penetration testing by certified security experts
+   - Review all code for vulnerabilities specific to your environment
 
-The authors assume no liability for any data breaches, compliance violations,
-or patient harm resulting from the use of this software.
+2. COMPLIANCE VERIFICATION
+   - HIPAA: Ensure compliance with 45 CFR Part 164 (Security Rule)
+   - GDPR: Verify compliance with EU General Data Protection Regulation
+   - Local regulations: Check jurisdiction-specific healthcare data laws
+   - Obtain sign-off from your compliance and legal teams
+
+3. PROFESSIONAL REVIEW
+   - Have licensed healthcare IT professionals review implementations
+   - Consult with healthcare security specialists
+   - Engage qualified legal counsel for regulatory matters
+
+4. TESTING REQUIREMENTS
+   - Never use real PHI (Protected Health Information) in testing
+   - Use synthetic or de-identified data for all development
+   - Conduct User Acceptance Testing with stakeholders
+
+5. PRODUCTION DEPLOYMENT
+   - Follow your organization's change management procedures
+   - Implement proper monitoring and incident response
+   - Maintain audit logs per regulatory requirements (6 years for HIPAA)
+
+================================================================================
+                          LIMITATION OF LIABILITY
+================================================================================
+
+THE AUTHORS AND CONTRIBUTORS:
+
+- Make NO WARRANTIES regarding regulatory compliance
+- Assume NO LIABILITY for data breaches or security incidents
+- Accept NO RESPONSIBILITY for HIPAA/GDPR violations
+- Provide NO GUARANTEE of fitness for healthcare use
+- Bear NO LIABILITY for patient harm or adverse outcomes
+
+Use of this software in healthcare settings is ENTIRELY AT YOUR OWN RISK.
+
+================================================================================
+                              ACKNOWLEDGMENTS
+================================================================================
+
+This repository incorporates concepts and standards from:
+
+- HL7 FHIR® (https://hl7.org/fhir/)
+  FHIR® is the registered trademark of Health Level Seven International
+
+- SMART on FHIR (https://smarthealthit.org/)
+  Developed by Boston Children's Hospital
+
+- OAuth 2.0 / OpenID Connect
+  IETF RFC 6749, RFC 6750, OpenID Foundation
+
+- FAPI 2.0 (Financial-grade API)
+  OpenID Foundation
+
+All trademarks are the property of their respective owners.
+
+================================================================================
+                               CONTACT
+================================================================================
+
+Author: Nithin Mohan T K
+Repository: https://github.com/nithinmohantk/fhir-security
+Blog: https://www.dataa.dev
+LinkedIn: https://linkedin.com/in/nithinmohantk
+
+For security vulnerabilities, please open a GitHub issue or contact directly.
